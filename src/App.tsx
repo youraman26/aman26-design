@@ -4,6 +4,7 @@
  */
 
 import React, { useState, useEffect, useRef, type FC, Suspense, lazy } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import Lenis from 'lenis';
 import { 
   motion, 
@@ -4967,6 +4968,9 @@ export default function App() {
         className="fixed top-0 left-0 right-0 h-1 bg-accent origin-left z-[100]"
         style={{ scaleX: useSpring(useScroll().scrollYProgress, { stiffness: 100, damping: 30 }) }}
       />
+      
+      {/* Vercel Web Analytics */}
+      <Analytics />
     </div>
   );
 }
