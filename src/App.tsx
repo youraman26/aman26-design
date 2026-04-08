@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect, useRef, type FC } from 'react';
+import React, { useState, useEffect, useRef, type FC, Suspense, lazy } from 'react';
 import Lenis from 'lenis';
 import { 
   motion, 
@@ -79,6 +79,9 @@ import {
   Lightbulb,
   Phone
 } from 'lucide-react';
+
+const Footer = lazy(() => import('./Footer'));
+const AboutSection = lazy(() => import('./AboutSection'));
 
 // --- Types ---
 interface Project {
@@ -518,6 +521,7 @@ const WorkPage = ({ onClose, onSelectProject }: { onClose: () => void, onSelectP
             >
               <div className="w-full md:w-[320px] lg:w-[400px] shrink-0 aspect-[16/10] rounded-[24px] overflow-hidden">
                 <img 
+                  loading="lazy"
                   src={project.image} 
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 transform-gpu will-change-transform rounded-[24px]"
@@ -942,97 +946,6 @@ interface ProjectCardProps {
   index: number;
 }
 
-const AboutSection = () => {
-  return (
-    <section id="about" className="bg-ink py-24 md:py-32 px-6 md:px-12 lg:px-24 text-white overflow-hidden relative">
-      {/* Background Decorative Elements */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] -mr-64 -mt-64" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px] -ml-48 -mb-48" />
-
-      <div className="container-wide relative z-10">
-        {/* Full Width Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-16 md:mb-24 text-center"
-        >
-          <h2 className="text-3xl md:text-5xl font-black leading-[1.1] tracking-tight max-w-4xl mx-auto text-white">
-            If users are <span className="italic-serif font-normal text-accent">confused</span>, it’s not them it’s the <span className="italic-serif font-normal text-accent">product</span> & I can <span className="italic-serif font-normal text-accent">fix</span> that.
-          </h2>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Image Side */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative w-full"
-          >
-            <motion.div 
-              whileHover={{ 
-                rotate: -2,
-                scale: 1.02,
-                transition: { duration: 0.3, ease: "easeOut" }
-              }}
-              className="aspect-[4/5] md:aspect-square rounded-[32px] overflow-hidden border border-white/10 shadow-2xl relative group cursor-pointer"
-            >
-              {/* Internal Blue Outline */}
-              <div className="absolute inset-3 border-2 border-accent/20 rounded-[24px] pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <img 
-                src="/image/my_main_img_3x.webp" 
-                alt="Aman Chourasiya" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                
-                referrerPolicy="no-referrer"
-              />
-              
-              {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </motion.div>
-            
-            {/* Experience Badge */}
-            <motion.div 
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              className="absolute -bottom-6 -right-6 w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br from-accent to-accent/80 rounded-full flex flex-col items-center justify-center p-4 text-white text-center shadow-2xl border-4 border-ink z-20 cursor-default"
-            >
-              <span className="text-2xl md:text-4xl font-bold tracking-tighter leading-none mb-1">3+</span>
-              <span className="text-[7px] md:text-[9px] font-medium uppercase tracking-[0.2em] leading-tight opacity-90">years of<br/>experience</span>
-            </motion.div>
-          </motion.div>
-
-          {/* Description Side */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="w-full"
-          >
-            <div className="space-y-6 text-white/70 text-lg md:text-xl font-light leading-relaxed">
-              <p>
-                I’m a <span className="text-white font-medium">Product & UX/UI Designer</span> with 3+ years of experience working across <span className="text-accent">SaaS, enterprise, and mobile products</span>.
-                I started with an interest in how things are built, but over time, my focus shifted to how they actually work for people.
-              </p>
-              <p>
-                Today, I design with <span className="text-white font-medium">structure in mind</span> simplifying complex workflows, improving how products perform, and building systems that keep things consistent as they grow.
-                Now actively using <span className="text-accent">AI</span> as part of my workflow to move faster, iterate better, and think more clearly.
-              </p>
-              <p>
-                I work closely with <span className="text-white font-medium">product, engineering, and stakeholder teams</span> to turn ideas into solutions that are <span className="text-accent">practical, thoughtful, and built to last</span>.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
 
 const CaseStudy = ({ project, onClose }: { project: Project, onClose: () => void }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -1116,7 +1029,7 @@ const CaseStudy = ({ project, onClose }: { project: Project, onClose: () => void
                 </div>
 
                 <div className="aspect-[16/9] w-full rounded-3xl overflow-hidden bg-bg mb-10">
-                  <img src="/image/tbl_top_mockup_3x.webp" alt="Tech Bay Leaf Hero" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                  <img loading="lazy" src="/image/tbl_top_mockup_3x.webp" alt="Tech Bay Leaf Hero" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                 </div>
               </div>
             )}
@@ -1520,7 +1433,7 @@ const CaseStudy = ({ project, onClose }: { project: Project, onClose: () => void
                     <div className="mb-20">
                       <h3 className="text-2xl font-bold text-ink mb-8 text-center">User Flow</h3>
                       <div className="aspect-[16/9] w-full rounded-3xl overflow-hidden bg-white border border-border shadow-sm mb-8 cursor-zoom-in" onClick={() => setSelectedImage("/image/common_user_flow_3x.webp")}>
-                        <img src="/image/common_user_flow_3x.webp" alt="User Flow" className="w-full h-full object-cover" referrerPolicy="no-referrer"  />
+                        <img loading="lazy" src="/image/common_user_flow_3x.webp" alt="User Flow" className="w-full h-full object-cover" referrerPolicy="no-referrer"  />
                       </div>
                     </div>
                   </div>
@@ -1598,7 +1511,7 @@ const CaseStudy = ({ project, onClose }: { project: Project, onClose: () => void
                 <div className="mb-20">
                   <h3 className="text-2xl font-bold text-ink mb-8 text-center">Information Architecture</h3>
                   <div className="aspect-[16/9] w-full rounded-3xl overflow-hidden bg-white border border-border shadow-sm mb-8 cursor-zoom-in" onClick={() => setSelectedImage("/image/information_architecture_3x.webp")}>
-                    <img src="/image/information_architecture_3x.webp" alt="Information Architecture" className="w-full h-full object-cover" referrerPolicy="no-referrer"  />
+                    <img loading="lazy" src="/image/information_architecture_3x.webp" alt="Information Architecture" className="w-full h-full object-cover" referrerPolicy="no-referrer"  />
                   </div>
                 </div>
 
@@ -1686,7 +1599,7 @@ const CaseStudy = ({ project, onClose }: { project: Project, onClose: () => void
                   <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight">Wireframing & <span className="text-accent italic-serif font-normal">Iteration</span></h2>
                   <p className="text-white/70 text-xl mb-12 max-w-3xl mx-auto">The majority of time was spent on structure rather than visuals. Low-fidelity wireframes were used to define layout and hierarchy. Multiple variations were explored, answering one question: Does the structure make it easy for users to understand and move forward?</p>
                   <div className="aspect-[16/9] bg-white/5 rounded-3xl border border-white/10 flex items-center justify-center relative overflow-hidden cursor-zoom-in" onClick={() => setSelectedImage("/image/wireframe_3x.webp")}>
-                    <img src="/image/wireframe_3x.webp" alt="Wireframes" className="w-full h-full object-cover" referrerPolicy="no-referrer"  />
+                    <img loading="lazy" src="/image/wireframe_3x.webp" alt="Wireframes" className="w-full h-full object-cover" referrerPolicy="no-referrer"  />
                   </div>
                 </div>
                 
@@ -1695,16 +1608,16 @@ const CaseStudy = ({ project, onClose }: { project: Project, onClose: () => void
                   <p className="text-white/70 text-xl mb-12 max-w-3xl mx-auto">The final output included a complete website system covering over 15 pages. The homepage acts as the primary entry point, focusing on credibility and quick understanding. Service pages provide detailed breakdowns while maintaining consistency. Case studies support validation and decision-making. The blog system supports content and SEO. The careers page focuses on culture and hiring.</p>
                   <div className="flex flex-col gap-8">
                     <div className="aspect-[16/9] bg-white/5 rounded-3xl border border-white/10 flex items-center justify-center relative overflow-hidden cursor-zoom-in" onClick={() => setSelectedImage("/image/tbl_final_ui_mock_3x.webp")}>
-                      <img src="/image/tbl_final_ui_mock_3x.webp" alt="Final UI" className="w-full h-full object-cover" referrerPolicy="no-referrer"  />
+                      <img loading="lazy" src="/image/tbl_final_ui_mock_3x.webp" alt="Final UI" className="w-full h-full object-cover" referrerPolicy="no-referrer"  />
                     </div>
                     <div className="aspect-[16/9] bg-white/5 rounded-3xl border border-white/10 flex items-center justify-center relative overflow-hidden cursor-zoom-in" onClick={() => setSelectedImage("/image/tbl_ui_design_one_3x.webp")}>
-                      <img src="/image/tbl_ui_design_one_3x.webp" alt="UI Mockup 1" className="w-full h-full object-cover" referrerPolicy="no-referrer"  />
+                      <img loading="lazy" src="/image/tbl_ui_design_one_3x.webp" alt="UI Mockup 1" className="w-full h-full object-cover" referrerPolicy="no-referrer"  />
                     </div>
                     <div className="aspect-[16/9] bg-white/5 rounded-3xl border border-white/10 flex items-center justify-center relative overflow-hidden cursor-zoom-in" onClick={() => setSelectedImage("/image/tbl_ui_design_two_3x.webp")}>
-                      <img src="/image/tbl_ui_design_two_3x.webp" alt="UI Mockup 2" className="w-full h-full object-cover" referrerPolicy="no-referrer"  />
+                      <img loading="lazy" src="/image/tbl_ui_design_two_3x.webp" alt="UI Mockup 2" className="w-full h-full object-cover" referrerPolicy="no-referrer"  />
                     </div>
                     <div className="aspect-[16/9] bg-white/5 rounded-3xl border border-white/10 flex items-center justify-center relative overflow-hidden cursor-zoom-in" onClick={() => setSelectedImage("/image/tbl_all_ui_design_3x.webp")}>
-                      <img src="/image/tbl_all_ui_design_3x.webp" alt="UI Mockup 3" className="w-full h-full object-cover" referrerPolicy="no-referrer"  />
+                      <img loading="lazy" src="/image/tbl_all_ui_design_3x.webp" alt="UI Mockup 3" className="w-full h-full object-cover" referrerPolicy="no-referrer"  />
                     </div>
                   </div>
                 </div>
@@ -2858,7 +2771,7 @@ const CaseStudy = ({ project, onClose }: { project: Project, onClose: () => void
                     className="w-full rounded-3xl overflow-hidden border border-border shadow-xl cursor-zoom-in"
                     onClick={() => setSelectedImage("/image/navigation_system_img_3x.webp")}
                   >
-                    <img src="/image/navigation_system_img_3x.webp" alt="Design System" className="w-full h-auto block" referrerPolicy="no-referrer" />
+                    <img loading="lazy" src="/image/navigation_system_img_3x.webp" alt="Design System" className="w-full h-auto block" referrerPolicy="no-referrer" />
                   </motion.div>
                   <div className="max-w-3xl text-center flex flex-col items-center">
                     <span className="text-accent text-[12px] font-medium uppercase tracking-[0.2em] mb-4 block">Visual Language</span>
@@ -2899,13 +2812,13 @@ const CaseStudy = ({ project, onClose }: { project: Project, onClose: () => void
                   <div className="space-y-4">
                     <p className="text-center font-bold text-muted uppercase tracking-widest text-sm">Before</p>
                     <div className="bg-bg p-6 rounded-3xl border border-border shadow-sm">
-                      <img src="/image/before_new_nav_img_3x.webp" alt="Before" className="w-full h-auto rounded-2xl" referrerPolicy="no-referrer" />
+                      <img loading="lazy" src="/image/before_new_nav_img_3x.webp" alt="Before" className="w-full h-auto rounded-2xl" referrerPolicy="no-referrer" />
                     </div>
                   </div>
                   <div className="space-y-4">
                     <p className="text-center font-bold text-accent uppercase tracking-widest text-sm">After</p>
                     <div className="bg-bg p-6 rounded-3xl border border-accent/20 shadow-xl shadow-accent/5">
-                      <img src="/image/after_new_nav_img_3x.webp" alt="After" className="w-full h-auto rounded-2xl" referrerPolicy="no-referrer" />
+                      <img loading="lazy" src="/image/after_new_nav_img_3x.webp" alt="After" className="w-full h-auto rounded-2xl" referrerPolicy="no-referrer" />
                     </div>
                   </div>
                 </div>
@@ -4749,7 +4662,7 @@ const TestimonialsSection = () => {
         {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
           <div key={i} className="inline-block w-[300px] md:w-[400px] p-6 md:p-8 bg-bg rounded-[24px] md:rounded-[32px] border border-border whitespace-normal">
             <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
-              <img src={t.avatar} alt={t.name} className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover" />
+              <img loading="lazy" src={t.avatar} alt={t.name} className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover" />
               <div>
                 <h4 className="font-bold text-xs md:text-sm">{t.name}</h4>
                 <p className="text-[10px] md:text-xs text-muted">{t.role}</p>
@@ -4961,36 +4874,6 @@ const ContactSection = () => {
   );
 };
 
-const Footer = () => {
-  return (
-    <footer className="bg-bg py-12 border-t border-border relative">
-      <div className="container-wide px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
-            <div className="text-2xl font-black text-accent">ac.</div>
-            <div className="hidden md:block w-px h-4 bg-border" />
-            <p className="text-xs text-muted font-medium text-center md:text-left">
-              I design with systems in mind, so products don’t break as they grow.
-            </p>
-          </div>
-          
-          <div className="flex items-center gap-4">
-            <a href="https://www.linkedin.com/in/amanux26" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-[#0077B5] flex items-center justify-center hover:scale-110 transition-transform shadow-lg shadow-blue-500/20">
-              <LinkedInLogo size={20} />
-            </a>
-            <a href="https://x.com/aman26ux" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-black flex items-center justify-center hover:scale-110 transition-transform shadow-lg shadow-black/20">
-              <XLogo size={18} />
-            </a>
-            <a href="https://medium.com/@chourasiyaaman76" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-black flex items-center justify-center hover:scale-110 transition-transform shadow-lg shadow-black/20">
-              <MediumLogo size={20} />
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-};
-
 // --- Main App ---
 
 export default function App() {
@@ -5061,8 +4944,10 @@ export default function App() {
       </AnimatePresence>
 
       <main>
-        <Hero onViewWork={() => setShowWorkPage(true)} />
-        <AboutSection />
+        <Suspense fallback={<div className="h-20" />}>
+          <Hero onViewWork={() => setShowWorkPage(true)} />
+          <AboutSection />
+        </Suspense>
         <WorkSection onSelectProject={handleSelectProject} />
         <MoreWorkBanner />
         <SkillsSection />
@@ -5073,7 +4958,9 @@ export default function App() {
         <ContactSection />
       </main>
 
-      <Footer />
+      <Suspense fallback={<div className="h-20" />}>
+        <Footer />
+      </Suspense>
 
       {/* Global Scroll Progress Bar */}
       <motion.div 
