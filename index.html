@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aman Design Portfolio</title>
     <link rel="icon" type="image/webp" href="/image/mascot_img_3x.webp" />
+    <script>
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      // Clear hash on load to prevent browser from jumping to sections
+      if (window.location.hash) {
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+      window.scrollTo(0, 0);
+    </script>
   </head>
   <body>
     <div id="root"></div>

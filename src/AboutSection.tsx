@@ -44,7 +44,7 @@ const AboutSection = () => {
               
               <img 
                 loading="lazy"
-                src="/image/my_main_img_3x.webp" 
+                src="/image/my_main_img_2x.webp" 
                 alt="Aman Chourasiya" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 referrerPolicy="no-referrer"

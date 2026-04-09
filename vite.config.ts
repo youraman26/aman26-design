@@ -17,6 +17,16 @@ export default defineConfig(({mode}) => {
     },
     build: {
       target: 'esnext',
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'react-vendor': ['react', 'react-dom'],
+            'motion-vendor': ['motion/react'],
+            'lucide-vendor': ['lucide-react'],
+            'ui-vendor': ['lenis']
+          }
+        }
+      }
     },
     optimizeDeps: {
       esbuildOptions: {
