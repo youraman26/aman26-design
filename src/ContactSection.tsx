@@ -8,7 +8,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="bg-ink relative overflow-hidden py-32 md:py-60 px-6">
+    <section id="contact" className="bg-ink relative overflow-hidden py-16 md:py-60 px-4 md:px-6">
       {/* Grid Background Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
       
@@ -17,7 +17,7 @@ const ContactSection = () => {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-5xl mx-auto bg-white rounded-[40px] md:rounded-[60px] p-8 md:p-24 shadow-[0_60px_120px_-20px_rgba(0,0,0,0.3)] border border-white/50 relative overflow-hidden"
+          className="max-w-5xl mx-auto bg-white rounded-[32px] md:rounded-[60px] p-6 md:p-24 shadow-[0_60px_120px_-20px_rgba(0,0,0,0.3)] border border-white/50 relative overflow-hidden"
         >
           {/* Subtle Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-accent/5 pointer-events-none" />

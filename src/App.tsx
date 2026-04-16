@@ -419,7 +419,7 @@ const Hero = ({ onViewWork }: { onViewWork: () => void }) => {
   const scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.9]);
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-white">
+    <section className="relative min-h-[80vh] md:h-screen flex items-center justify-center overflow-hidden bg-white">
       {/* Grid Background */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#11111108_1px,transparent_1px),linear-gradient(to_bottom,#11111108_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
       
@@ -841,9 +841,9 @@ const WorkSection = ({ onSelectProject }: { onSelectProject: (p: Project) => voi
   };
 
   return (
-    <section id="work" className="relative z-20 bg-bg py-24 md:py-40 px-6 overflow-x-clip">
+    <section id="work" className="relative z-20 bg-bg py-16 md:py-40 px-4 md:px-6 overflow-x-clip">
       <div className="container-wide">
-        <div className="mb-24 text-center">
+        <div className="mb-16 md:mb-24 text-center">
           <motion.h2 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -927,11 +927,24 @@ export default function App() {
   const handleSelectProject = (project: Project) => {
     if (project.hasCaseStudy) {
       setSelectedProject(project);
+      const slug = project.title.toLowerCase().replace(/\s+/g, '-');
+      window.history.pushState(null, '', `?project=${slug}`);
     } else if (project.pdfUrl) {
       // Directly open in new tab and hide toolbar to discourage downloading
       window.open(project.pdfUrl + '#toolbar=0', '_blank');
     }
   };
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const projectSlug = params.get('project');
+    if (projectSlug) {
+      const project = PROJECTS.find(p => p.title.toLowerCase().replace(/\s+/g, '-') === projectSlug);
+      if (project) {
+        handleSelectProject(project);
+      }
+    }
+  }, []);
 
   return (
     <div className="relative">
@@ -952,7 +965,10 @@ export default function App() {
           <Suspense fallback={<div className="fixed inset-0 z-50 bg-bg flex items-center justify-center"><Loader2 className="w-8 h-8 animate-spin text-accent" /></div>}>
             <CaseStudy 
               project={selectedProject} 
-              onClose={() => setSelectedProject(null)} 
+              onClose={() => {
+                setSelectedProject(null);
+                window.history.pushState(null, '', '/');
+              }} 
             />
           </Suspense>
         )}
