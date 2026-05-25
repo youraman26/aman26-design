@@ -1,18 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Libre+Baskerville:ital@400&family=Playfair+Display:ital,wght@1,400;1,500;1,600;1,700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Libre Baskerville", serif;
-  --font-script: "Caveat", cursive;
   
-  --color-bg: #F8F9FB;
-  --color-accent: #2F6BFF; /* Original Blue Accent */
-  --color-ink: #111111;
+  --color-bg: #FAFAFA;
+  --color-accent: #DE1C4D;
+  --color-ink: #000000;
   --color-muted: #666666;
-  --color-border: rgba(17, 17, 17, 0.1);
+  --color-border: rgba(0, 0, 0, 0.08);
+
+  --background-image-gradient-primary: linear-gradient(135deg, #DE1C4D 0%, #B0123C 100%);
 }
 
 @layer base {
+  html, body {
+    overscroll-behavior: none;
+  }
+  
   body {
     @apply bg-bg text-ink font-sans antialiased selection:bg-accent selection:text-white;
     cursor: none; /* Hide default cursor for custom cursor */
@@ -29,11 +35,14 @@
 
 @layer utilities {
   .section-padding {
-    @apply py-12 md:py-32 lg:py-40 px-4 md:px-12 lg:px-24;
+    padding-block: clamp(48px, 12vw, 160px);
+    padding-inline: clamp(16px, 4.5vw, 96px);
   }
   
   .container-wide {
-    @apply max-w-7xl mx-auto;
+    width: min(93vw, 1800px);
+    margin-inline: auto;
+    padding-inline: clamp(16px, 4.5vw, 96px);
   }
 
   .no-scrollbar::-webkit-scrollbar {

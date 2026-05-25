@@ -4,6 +4,7 @@ import { Layout, Users, Sparkles, Palette, MessageSquare, BarChart3, Cpu, Layers
 export interface Project {
   id: number;
   title: string;
+  subtext?: string;
   description: string;
   tags: string[];
   image: string;
@@ -12,6 +13,8 @@ export interface Project {
   category?: string;
   hasCaseStudy?: boolean;
   pdfUrl?: string;
+  externalLink?: string;
+  buttonLabel?: string;
   role?: string;
   problem?: string;
 }
@@ -40,78 +43,111 @@ export interface Testimonial {
 
 export const PROJECTS: Project[] = [
   {
+    id: 10,
+    title: "Sparrow : AI Powered Generate Variables",
+    subtext: "8× Faster Implementation • 90% Setup Time Reduction",
+    description: "Designed an AI-powered variable generation workflow for API testing that automated extraction, naming, and scope management while keeping developers in control. Reduced repetitive setup work and improved speed, consistency, and trust across team workflows.",
+    tags: ["AI Workflow", "Developer Tools", "90% Faster Setup"],
+    category: "Developer Tools",
+    image: "/image/Sparrow Thumbnail.webp",
+    color: "#F9F9F9",
+    hoverColor: "#F5F5F5",
+    hasCaseStudy: true,
+    role: "Product Designer",
+    problem: "Repetitive API configuration and manual variable extraction."
+  },
+  {
+    id: 8,
+    title: "Bill splitting experience",
+    subtext: "Simplified Group Payments • Reduced Shared Dining Friction",
+    description: "Designed a collaborative dining experience that streamlined bill splitting, payment coordination, and decision-making to make group dining faster, clearer, and more enjoyable.",
+    tags: ["Consumer Product", "Payments", "Experience Design"],
+    category: "Fintech & Dining",
+    image: "/image/Bill Splitting Thumbnail.webp",
+    color: "#F9F9F9",
+    hoverColor: "#F5F5F5",
+    hasCaseStudy: true,
+    role: "UX Designer",
+    problem: "Group dining bill splitting transactions and coordination."
+  },
+  {
+    id: 3,
+    title: "Wizlo : Enterprise Telehealth Platform",
+    subtext: "Lead 5+ End-to-End Modules • Operational Efficiency Increased by 30%",
+    description: "Designed and delivered 4 business-critical modules across orders, subscriptions, forms, and clinic management for a US telehealth SaaS platform. By reducing operational friction across onboarding, fulfilment, and recurring care workflows, the platform was positioned to support faster clinic activation, improved subscription continuity, and more scalable healthcare operations",
+    tags: ["Healthcare SaaS", "B2B2C", "Complex Workflows"],
+    category: "Telehealth",
+    image: "/image/Telehealth Thumbnail.webp",
+    color: "#F9F9F9",
+    hoverColor: "#F5F5F5",
+    buttonLabel: "Open Figma File",
+    externalLink: "https://www.figma.com/design/gRwi4wCuDnlWc8SkGaC6gD/Wizlo---Telehealth-Platform?node-id=5-99228&t=ctUYHsIkGowmg9EX-1",
+    role: "Product Designer"
+  },
+  {
+    id: 4,
+    title: "Colab Tools : Construction Site Management",
+    subtext: "70% Reduction in DPR time • 94% Quality checklist compliance",
+    description: "Designed an end-to-end construction intelligence platform that replaced fragmented tools and manual reporting with a unified operational system. Enabled faster decisions, better visibility, and structured execution across site operations.",
+    tags: ["Construction Tech", "Mobile SaaS", "Operations"],
+    category: "Construction",
+    image: "/image/Colab Thumbnail.webp",
+    color: "#F9F9F9",
+    hoverColor: "#F5F5F5",
+    buttonLabel: "Open Figma File",
+    externalLink: "https://www.figma.com/design/01Ru3cA6mZ0q4PRedMDtZb/Colab-Tools-UI-Updated-Design-File?node-id=39-1604&t=2v73ynxf67WEElwl-1",
+    role: "Product Designer"
+  }
+];
+
+export const MINOR_PROJECTS: Project[] = [
+  {
     id: 1,
-    title: "Tech Bay Leaf",
-    description: "Redesigning the digital presence for a global agency managing $20M+ in ad spend. By re-architecting 15+ pages with a performance-led conversion system, I transformed the website into a high-trust sales tool that builds credibility in under 5 seconds.",
+    title: "Tech Bay Leaf : B2B Website",
+    description: "Redesigning the digital presence for a global agency managing $20M+ in ad spend by transforming 15+ pages into a high-converting, trust-driven sales experience.",
     tags: ["UX/UI", "Conversion", "B2B"],
     category: "Marketing Agency",
-    image: "/image/techbayleaf_thumbnail_2x.webp",
-    color: "#F3E8FF",
-    hoverColor: "#D9DEFF",
+    image: "/image/Techbayleaf Thumbnail.webp",
+    color: "#F9F9F9",
+    hoverColor: "#F5F5F5",
     hasCaseStudy: true,
     role: "Product Designer (UX/UI)",
   },
   {
-    id: 10,
-    title: "Sparrow: AI Powered Generate Variables",
-    description: "Designing an intuitive, AI-powered feature for intelligent variable extraction and environment management in API testing workflows. The solution achieved an 8x productivity improvement and an 82% AI adoption rate among developers.",
-    tags: ["AI Integration", "Developer Tools", "UX/UI"],
-    category: "API Testing",
-    image: "/image/sparrow_thumbnail_2x.webp",
-    color: "#F0FDF4",
-    hoverColor: "#D9E4FF",
-    hasCaseStudy: true,
-    role: "Product Designer",
-    problem: "Manual variable extraction is error-prone and time-consuming."
-  },
-  {
     id: 9,
-    title: "Mero med clinic sidebar navigation redesign",
+    title: "Clinic Navigation Redesign",
     description: "Improved telehealth navigation, increasing efficiency by 30% and discoverability by 40%, reducing cognitive load for admins.",
     tags: ["UX Research", "Information Architecture", "Product Design"],
     category: "Telehealth",
-    image: "/image/admin_navigation_thumbnail_2x.webp",
-    color: "#E8F0FF",
-    hoverColor: "#EFE3FF",
-    hasCaseStudy: true,
+    image: "/image/Admin Navigation thumbnail.webp",
+    color: "#F9F9F9",
+    hoverColor: "#F5F5F5",
+    externalLink: "https://medium.com/@chourasiyaaman76/designing-clinical-navigation-as-operational-infrastructure-13faed862051",
     role: "Product Designer",
     problem: "High cognitive load and operational inefficiency for clinic admins."
   },
   {
     id: 2,
-    title: "Design file management",
+    title: "Design File Management System",
     description: `Scaling design collaboration for multi-designer teams
 Reducing file confusion by 70% and accelerating handoff efficiency`,
     tags: ["UI Design", "Interaction", "AI Tools"],
     category: "Design operations",
-    image: "/image/figma_file_casestudy_thumbnail_2x.webp",
-    color: "#F0FFE8",
-    hoverColor: "#FCEBFF",
-    hasCaseStudy: true,
+    image: "/image/Figma file casestudy thumbnail.webp",
+    color: "#F9F9F9",
+    hoverColor: "#F5F5F5",
+    externalLink: "https://medium.com/@chourasiyaaman76/designing-a-scalable-design-file-management-system-2db31a4b4d28",
     role: "Lead Designer",
     problem: "Scaling design collaboration and reducing file confusion."
-  },
-  {
-    id: 3,
-    title: "Qix : Digital networking partner",
-    description: "Reimagining networking through digital-first identity sharing. Qix eliminates friction, making connections instant, trackable, and meaningful.",
-    tags: ["Networking", "Product Strategy", "UX"],
-    category: "Networking",
-    image: "/image/qix_thumbnail_2x.webp",
-    color: "#FFF0E8",
-    hoverColor: "#D6F0FF",
-    pdfUrl: "/QIX_Casestudy.pdf",
-    role: "UX Research & UI Design",
-    problem: "Friction in networking and identity sharing."
-  },
+  }
 ];
 
 export const SKILLS = [
   { 
     category: "Product Design & UX", 
     icon: Layout,
-    color: "border-blue-500",
-    iconBg: "bg-blue-500/10 text-blue-500",
+    color: "border-accent",
+    iconBg: "bg-accent/10 text-accent",
     description: "End-to-end ownership from brief to handoff, with a systems-thinking approach to every screen.",
     items: ["End-to-End Product Design", "Design Systems & Component Libraries", "Design Tokens", "User Flows & Journey Mapping", "Wireframing & Prototyping", "Interaction Design", "Mobile-First & Responsive Design", "Accessibility (WCAG 2.1)"],
     highlighted: []
@@ -119,8 +155,8 @@ export const SKILLS = [
   { 
     category: "UX Research & Strategy", 
     icon: Users,
-    color: "border-emerald-500",
-    iconBg: "bg-emerald-500/10 text-emerald-500",
+    color: "border-ink",
+    iconBg: "bg-ink/10 text-ink",
     description: "Mixed-method research that connects real user behaviour to design decisions not just gut feel.",
     items: ["User Research (Qualitative & Quantitative)", "User Interviews", "Usability Testing & Heuristic Evaluation", "A/B Testing", "Competitive Analysis", "Data-Driven Design", "Product Thinking & Problem Framing"],
     highlighted: []
@@ -128,8 +164,8 @@ export const SKILLS = [
   { 
     category: "AI-Assisted Design", 
     icon: Sparkles,
-    color: "border-cyan-500",
-    iconBg: "bg-cyan-500/10 text-cyan-500",
+    color: "border-accent",
+    iconBg: "bg-accent/10 text-accent",
     description: "Leveraging generative AI and automation to accelerate design cycles and explore new interaction paradigms.",
     items: ["AI-Assisted Design Workflows", "Generative AI for Ideation & Prototyping", "AI-Driven UX Research", "Prompt Engineering", "Design Automation & Rapid Iteration", "Human-AI Interaction Design"],
     highlighted: []
@@ -137,8 +173,8 @@ export const SKILLS = [
   { 
     category: "UI & Visual Design", 
     icon: Palette,
-    color: "border-purple-500",
-    iconBg: "bg-purple-500/10 text-purple-500",
+    color: "border-ink",
+    iconBg: "bg-ink/10 text-ink",
     description: "Pixel-considered visual work layouts that are clean, accessible, and actually get built as designed.",
     items: ["High-Fidelity Design", "Visual Systems", "Typography & Color Systems", "Microinteractions", "Branding & Visual Consistency"],
     highlighted: []
@@ -146,8 +182,8 @@ export const SKILLS = [
   { 
     category: "Collaboration & Delivery", 
     icon: MessageSquare,
-    color: "border-orange-500",
-    iconBg: "bg-orange-500/10 text-orange-500",
+    color: "border-accent",
+    iconBg: "bg-accent/10 text-accent",
     description: "Comfortable working across product, engineering, and leadership and keeping handoff clean enough that devs don't have to guess.",
     items: ["Developer Handoff & Documentation", "Stakeholder Management", "Cross-Functional Collaboration", "Agile/Scrum Workflows", "Design Critique & Workshops"],
     highlighted: []
@@ -196,7 +232,7 @@ export const EXPERIENCES: Experience[] = [
     period: "May 2025 to Present",
     location: "Indore, MP · On-site",
     type: "FULL-TIME",
-    description: "Leading end-to-end UX design for 4+ international products across gaming, telehealth, technology, and typography owning the full feature lifecycle from discovery to developer handoff. Improved task completion by 30%, reduced dev rework by 25%.",
+    description: "Led end-to-end design for complex SaaS and multi-role systems, focusing on user flows, interaction design, and scalable UI. Collaborated with product, engineering, and QA to simplify workflows and deliver clear, high-quality product experiences.",
     tags: ["4+ International Projects", "Full Feature Lifecycle", "Design Systems", "10K+ Users"]
   },
   {
@@ -205,7 +241,7 @@ export const EXPERIENCES: Experience[] = [
     period: "Feb 2024 to May 2025",
     location: "Indore, MP · On-site",
     type: "FULL-TIME",
-    description: "Designed 6+ real-world web & mobile products. Mentored 40+ designers in UX fundamentals, Figma, design laws, and portfolio building. Improved onboarding completion by 35%.",
+    description: "Designed web and SaaS products with strong focus on usability, structure, and visual consistency across platforms. Mentored designers and contributed to building design systems and improving overall user experience.",
     tags: ["6+ Products Shipped", "40+ Designers Mentored", "Curriculum Development"]
   },
   {
@@ -214,7 +250,7 @@ export const EXPERIENCES: Experience[] = [
     period: "Mar 2023 to Feb 2024",
     location: "Bhopal, MP · On-site",
     type: "FULL-TIME",
-    description: "Led UX for 6+ SaaS and enterprise products. Improved navigation efficiency by 28%, reduced usability issues by 40%, created 50+ high-fidelity prototypes, helped close 3+ major client deals through design demos.",
+    description: "Worked on web and mobile UI/UX design, improving user journeys, navigation, and interface clarity. Created wireframes, prototypes, and high-fidelity UI while collaborating with cross-functional teams.",
     tags: ["6+ SaaS Products", "Client Demos", "Multi-industry"]
   },
   {
@@ -223,7 +259,7 @@ export const EXPERIENCES: Experience[] = [
     period: "Jul 2022 to Jan 2023",
     location: "Bhopal, MP · On-site",
     type: "INTERN",
-    description: "Contributed to 3 live client projects in the first 5 months. Designed 40+ wireframes and UI screens, improved usability scores by 15% through iterative testing.",
+    description: "Contributed to user flows, information architecture, and wireframes for multi-role systems. Built a strong foundation in system thinking, usability, and structured product design.",
     tags: ["3 Live Projects", "40+ Wireframes"]
   }
 ];
