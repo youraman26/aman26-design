@@ -79,20 +79,18 @@ import {
   Phone
 } from 'lucide-react';
 
-const Footer = lazy(() => import('./Footer'));
-const OwnershipSection = lazy(() => import('./OwnershipSection'));
-const TestimonialsSection = lazy(() => import('./TestimonialsSection'));
-const GallerySection = lazy(() => import('./GallerySection'));
-const WhyMeSection = lazy(() => import('./WhyMeSection'));
-const ContactSection = lazy(() => import('./ContactSection'));
-const SparrowCaseStudy = lazy(() => import('./SparrowCaseStudy'));
-const TechBayLeafCaseStudy = lazy(() => import('./TechBayLeafCaseStudy'));
-const ElegantDiningCaseStudy = lazy(() => import('./ElegantDiningCaseStudy'));
+import Footer from './Footer';
+import OwnershipSection from './OwnershipSection';
+import TestimonialsSection from './TestimonialsSection';
+import GallerySection from './GallerySection';
+import WhyMeSection from './WhyMeSection';
+import ContactSection from './ContactSection';
+import SparrowCaseStudy from './SparrowCaseStudy';
+import TechBayLeafCaseStudy from './TechBayLeafCaseStudy';
+import ElegantDiningCaseStudy from './ElegantDiningCaseStudy';
 
 import { Project, PROJECTS, MINOR_PROJECTS } from './constants';
 import { ResponsiveImage } from './components/ResponsiveImage';
-import { InspirationCanvas } from './components/InspirationCanvas';
-import { ProblemSolvingModal } from './components/ProblemSolvingModal';
 
 const CustomCursor = () => {
   const mouseX = useMotionValue(0);
@@ -761,7 +759,7 @@ const LiquidCanvas = () => {
   );
 };
 
-const Hero = ({ onViewWork, onOpenInspiration, onOpenProblemSolving }: { onViewWork: () => void, onOpenInspiration: () => void, onOpenProblemSolving: () => void }) => {
+const Hero = ({ onViewWork }: { onViewWork: () => void }) => {
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 0.3], [0, -70]);
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
@@ -880,7 +878,7 @@ const Hero = ({ onViewWork, onOpenInspiration, onOpenProblemSolving }: { onViewW
             </div>
 
             <motion.a 
-              href="https://wa.me/917225905369?text=Hello%20Aman%2C%0A%0AI%20recently%20reviewed%20your%20portfolio%20and%20was%20impressed%20with%20your%20experience%20and%20approach%20to%20product%20design.%0A%0AI%20am%20reaching%20out%20to%20discuss%20a%20potential%20opportunity%20and%20explore%20how%20your%20skills%20align%20with%20our%20current%24requirements.%20I%20would%20appreciate%20the%20chance%20to%20connect%20and%20discuss%20this%20further%20at%20your%2524requirements.%20I%2520would%2520appreciate%2520the%2520chance%2520to%2520connect%2520and%2520discuss%2520this%2520further%2520at%2520your%2520convenience.%250A%250APlease%2520let%2520me%2520know%2520a%252520suitable%252520time%25252520for%25252520a%25252520conversation.%250A%250AThank%2520you."
+              href="https://wa.me/917225905369?text=Hello%20Aman%2C%0A%0AI%20recently%20reviewed%20your%20portfolio%20and%20was%20impressed%20with%20your%20experience%20and%20approach%20to%20product%20design.%0A%0AI%20am%20reaching%20out%20to%20discuss%20a%20potential%20opportunity%20and%20explore%20how%20your%20skills%20align%20with%20our%20current%20requirements.%20I%20would%20appreciate%20the%20chance%20to%20connect%20and%20discuss%20this%20further%20at%20your%20convenience.%0A%0APlease%20let%20me%20know%20a%20suitable%20time%20for%20a%20conversation.%0A%0AThank%20you."
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
@@ -893,97 +891,7 @@ const Hero = ({ onViewWork, onOpenInspiration, onOpenProblemSolving }: { onViewW
             </motion.a>
           </motion.div>
 
-          {/* Mobile Floating Cards Grid */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.7 }}
-            className="flex flex-row justify-center gap-3 mt-8 md:hidden z-20 pointer-events-auto px-4 w-full"
-          >
-            {/* Left Card on Mobile */}
-            <motion.div 
-              whileTap={{ scale: 0.95 }}
-              onClick={onOpenInspiration}
-              className="flex-1 max-w-[145px] h-[100px] bg-[#FFE600] rounded-2xl border border-black/10 flex flex-col justify-between p-3.5 select-none cursor-pointer shadow-sm active:scale-95 -rotate-3"
-            >
-              <span className="text-[#1A1A1D] text-[12px] font-serif font-bold italic tracking-wide leading-tight text-left">
-                always open for inspirations
-              </span>
-              <div className="text-left">
-                <span className="inline-block bg-white text-[#DE1C4D] border border-[#DE1C4D]/25 font-sans font-semibold text-[9px] rounded-full px-2.5 py-0.5 shadow-sm leading-none">
-                  open canvas
-                </span>
-              </div>
-            </motion.div>
 
-            {/* Right Card on Mobile */}
-            <motion.div 
-              whileTap={{ scale: 0.95 }}
-              onClick={onOpenProblemSolving}
-              className="flex-1 max-w-[145px] h-[100px] bg-[#FF4E12] rounded-2xl border border-black/10 flex flex-col justify-between p-3.5 select-none cursor-pointer shadow-sm active:scale-95 rotate-3"
-            >
-              <span className="text-white text-[12px] font-serif font-bold italic tracking-wide leading-tight text-left">
-                my problem solving approach
-              </span>
-              <div className="text-left">
-                <span className="inline-block bg-white text-[#DE1C4D] border border-[#DE1C4D]/25 font-sans font-semibold text-[9px] rounded-full px-2.5 py-0.5 shadow-sm leading-none">
-                  explore
-                </span>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Left Floating Tilted Card Placeholder - displaying Figma-style yellow sticky card - moved further left */}
-          <motion.div
-            initial={{ opacity: 0, x: -30, rotate: -20 }}
-            animate={{ opacity: 1, x: 0, rotate: -12 }}
-            whileHover={{ scale: 1.08, rotate: -8, y: "-52%" }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ 
-              initial: { delay: 0.6, duration: 1, ease: [0.16, 1, 0.3, 1] },
-              whileHover: { duration: 0.3, ease: "easeOut" }
-            }}
-            onClick={onOpenInspiration}
-            className="absolute left-[-15%] md:left-[-8%] lg:left-[-4%] xl:left-[-2%] top-[55%] -translate-y-1/2 w-[115px] h-[80px] sm:w-[160px] sm:h-[110px] md:w-[215px] md:h-[148px] bg-[#FFE600] rounded-xl sm:rounded-2xl cursor-pointer z-10 hidden md:block border border-black/10 overflow-hidden flex flex-col justify-between p-3 sm:p-4 md:p-[20px] select-none"
-            title="Click to open Inspiration Canvas moodboard"
-          >
-            <div className="flex flex-col justify-between h-full w-full text-left">
-              <span className="text-[#1A1A1D] text-[12px] sm:text-[16px] md:text-[21px] font-serif font-bold italic tracking-wide leading-tight select-none pointer-events-none drop-shadow-[0_1px_1px_rgba(255,255,255,0.4)]">
-                always open for inspirations
-              </span>
-              <div className="w-full">
-                <span className="inline-block bg-white text-[#DE1C4D] border-2 border-[#DE1C4D] font-sans font-medium text-[8px] sm:text-[11px] md:text-[13px] rounded-full px-2.5 py-0.5 sm:px-3 sm:py-1 leading-normal select-none pointer-events-none shadow-sm">
-                  click to open canvas
-                </span>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right Floating Tilted Card - My Problem Solving Approach */}
-          <motion.div
-            initial={{ opacity: 0, x: 30, rotate: 20 }}
-            animate={{ opacity: 1, x: 0, rotate: 12 }}
-            whileHover={{ scale: 1.08, rotate: 8, y: "-52%" }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ 
-              initial: { delay: 0.6, duration: 1, ease: [0.16, 1, 0.3, 1] },
-              whileHover: { duration: 0.3, ease: "easeOut" }
-            }}
-            onClick={onOpenProblemSolving}
-            className="absolute right-[-15%] md:right-[-8%] lg:right-[-4%] xl:right-[-2%] top-[58%] -translate-y-1/2 w-[115px] h-[80px] sm:w-[160px] sm:h-[110px] md:w-[215px] md:h-[148px] bg-[#FF4E12] rounded-xl sm:rounded-2xl cursor-pointer z-10 hidden md:block border border-black/10 overflow-hidden flex flex-col justify-between p-3 sm:p-4 md:p-[20px] select-none"
-            title="Click to explore My Problem Solving Approach"
-          >
-            <div className="flex flex-col justify-between h-full w-full text-left">
-              <span className="text-white text-[12px] sm:text-[16px] md:text-[21px] font-serif font-bold italic tracking-wide leading-tight select-none pointer-events-none drop-shadow-[0_1px_1px_rgba(0,0,0,0.15)]">
-                my problem solving approach
-              </span>
-              <div className="w-full">
-                <span className="inline-block bg-white text-[#DE1C4D] border-2 border-[#DE1C4D] font-sans font-medium text-[8px] sm:text-[11px] md:text-[13px] rounded-full px-2.5 py-0.5 sm:px-3 sm:py-1 leading-normal select-none pointer-events-none shadow-sm">
-                  click to explore
-                </span>
-              </div>
-            </div>
-          </motion.div>
 
         </motion.div>
       </motion.div>
@@ -1397,8 +1305,6 @@ const WorkSection = ({ onSelectProject }: { onSelectProject: (p: Project) => voi
 export default function App() {
   const [showWorkPage, setShowWorkPage] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [isInspirationCanvasOpen, setIsInspirationCanvasOpen] = useState(false);
-  const [isProblemSolvingOpen, setIsProblemSolvingOpen] = useState(false);
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -1435,12 +1341,12 @@ export default function App() {
     if (!lenis) return;
 
     // Stop/Start Lenis based on overlay state
-    if (showWorkPage || selectedProject || isInspirationCanvasOpen || isProblemSolvingOpen) {
+    if (showWorkPage || selectedProject) {
       lenis.stop();
     } else {
       lenis.start();
     }
-  }, [showWorkPage, selectedProject, isInspirationCanvasOpen, isProblemSolvingOpen]);
+  }, [showWorkPage, selectedProject]);
 
   const handleSelectProject = (project: Project) => {
     if (project.externalLink) {
@@ -1514,14 +1420,9 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      <InspirationCanvas isOpen={isInspirationCanvasOpen} onClose={() => setIsInspirationCanvasOpen(false)} />
-      <ProblemSolvingModal isOpen={isProblemSolvingOpen} onClose={() => setIsProblemSolvingOpen(false)} />
-
       <main>
         <Hero 
           onViewWork={() => setShowWorkPage(true)} 
-          onOpenInspiration={() => setIsInspirationCanvasOpen(true)} 
-          onOpenProblemSolving={() => setIsProblemSolvingOpen(true)} 
         />
         <WorkSection onSelectProject={handleSelectProject} />
         <MoreWorkBanner />

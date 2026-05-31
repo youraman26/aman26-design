@@ -22,7 +22,8 @@ export const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
   // Directly serve the original high-resolution WebP file from /image/ path
   const hasWidthClass = className.split(' ').some(c => c.startsWith('w-'));
   const hasHeightClass = className.split(' ').some(c => c.startsWith('h-'));
-  const baseClasses = `${hasWidthClass ? '' : 'w-full'} ${hasHeightClass ? '' : 'h-auto'} object-cover block`;
+  const hasObjectFit = className.split(' ').some(c => c.startsWith('object-'));
+  const baseClasses = `${hasWidthClass ? '' : 'w-full'} ${hasHeightClass ? '' : 'h-auto'} ${hasObjectFit ? '' : 'object-cover'} block`;
 
   return (
     <img
