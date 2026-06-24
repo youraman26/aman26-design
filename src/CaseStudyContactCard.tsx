@@ -21,6 +21,8 @@ const CaseStudyContactCard = () => {
         className="max-w-6xl mx-auto w-full bg-gradient-to-b from-[#0A0A0C] to-[#7B0B27] rounded-[24px] md:rounded-[32px] p-6 md:p-16 border border-[#DE1C4D]/25 relative overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.3)]"
       >
         <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none" />
+        {/* Dynamic lining grid overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-[1]" />
         <div className="relative z-10 text-left text-white w-full">
           <h2 
             className="text-4xl md:text-[72px] font-medium leading-tight md:leading-[1.1] tracking-tight mb-6 md:mb-8 w-full"

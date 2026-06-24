@@ -10,6 +10,9 @@ const WhyMeSection = () => {
         >
           <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none" />
           
+          {/* Dynamic lining grid overlay */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-[1]" />
+          
           <div className="text-left w-full relative z-10 container-wide py-12 md:py-24">
             <motion.h2
               initial={{ opacity: 0, y: 30 }}

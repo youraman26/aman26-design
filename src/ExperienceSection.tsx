@@ -110,7 +110,7 @@ const ExperienceSection = () => {
           className="mt-20 md:mt-32 text-center"
         >
           <motion.a
-            href="https://drive.google.com/file/d/18MAWgK4jLlFAnEy8ORVvHVmUfRCDslWk/view?usp=sharing"
+            href="https://drive.google.com/file/d/1PqPwi_zIHhfrCgeqNWZXvnYeNsKj32et/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             initial="initial"

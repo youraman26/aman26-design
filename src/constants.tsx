@@ -102,18 +102,6 @@ export const PROJECTS: Project[] = [
 
 export const MINOR_PROJECTS: Project[] = [
   {
-    id: 1,
-    title: "Tech Bay Leaf : B2B Website",
-    description: "Redesigning the digital presence for a global agency managing $20M+ in ad spend by transforming 15+ pages into a high-converting, trust-driven sales experience.",
-    tags: ["UX/UI", "Conversion", "B2B"],
-    category: "Marketing Agency",
-    image: "/image/Techbayleaf Thumbnail.webp",
-    color: "#F9F9F9",
-    hoverColor: "#F5F5F5",
-    hasCaseStudy: true,
-    role: "Product Designer (UX/UI)",
-  },
-  {
     id: 9,
     title: "Clinic Navigation Redesign",
     description: "Improved telehealth navigation, increasing efficiency by 30% and discoverability by 40%, reducing cognitive load for admins.",

@@ -40,6 +40,9 @@ const ContactSection = () => {
           {/* Subtle Shine Overlay */}
           <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none" />
 
+          {/* Dynamic lining grid overlay */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-[1]" />
+
         <div className="text-left w-full relative z-10 container-wide py-12 md:py-24">
           <motion.img 
             initial={{ opacity: 0, y: 20 }}
@@ -89,17 +92,24 @@ const ContactSection = () => {
             ))}
           </motion.h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-            className="text-white/70 text-base md:text-lg max-w-2xl mb-10 md:mb-16 leading-relaxed"
-          >
-            Thanks for scrolling. If you’re looking for someone who thinks beyond interfaces and designs with users, business, and growth in mind I’d love to connect.
-          </motion.p>
-          
-          <div className="flex flex-col sm:flex-row items-start justify-start gap-4 md:gap-6">
+          <div className="flex flex-col items-start gap-8 mb-10 md:mb-16 w-full">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+              className="text-white/70 text-base md:text-lg max-w-xl md:max-w-[800px] leading-relaxed m-0"
+            >
+              Thanks for scrolling. If you’re looking for someone who thinks beyond interfaces and designs with users, business, and growth in mind, I’d love to connect.
+            </motion.p>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              className="border border-white/15 bg-white/[0.02] backdrop-blur-md rounded-[28px] p-4 flex flex-col sm:flex-row gap-4 items-center w-full sm:w-auto shrink-0 z-10"
+            >
               <motion.a
                 href="https://wa.me/917225905369?text=Hello%20Aman%2C%0A%0AI%20recently%20reviewed%20your%20portfolio%20and%20was%20impressed%20with%20your%20experience%20and%20approach%20to%20product%20design.%0A%0AI%20am%20reaching%20out%20to%20discuss%20a%20potential%20opportunity%20and%20explore%20how%20your%20skills%20align%20with%20our%20current%20requirements.%20I%20would%20appreciate%20the%20chance%20to%20connect%20and%20discuss%20this%20further%20at%20your%20convenience.%0A%0APlease%20let%20me%20know%20a%20suitable%20time%20for%20a%20conversation.%0A%0AThank%20you."
                 target="_blank" 
@@ -132,48 +142,35 @@ const ContactSection = () => {
               </motion.a>
               
               <motion.a
-                href="https://drive.google.com/file/d/18MAWgK4jLlFAnEy8ORVvHVmUfRCDslWk/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, background: "rgba(255,255,255,0.1)" }}
+                href="mailto:chourasiyaaman76@gmail.com"
+                whileHover={{ scale: 1.02, background: "rgba(255,255,255,0.06)", borderColor: "rgba(255,255,255,0.4)" }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full sm:w-auto px-6 md:px-8 py-3 bg-transparent border-2 border-white text-white font-medium rounded-full transition-all duration-300 flex items-center justify-center text-base md:text-lg cursor-pointer"
+                className="w-full sm:w-auto px-6 md:px-8 py-3 bg-transparent border-2 border-white/20 text-white font-medium rounded-full transition-all duration-300 flex items-center justify-center text-base md:text-lg cursor-pointer"
               >
-                <span className="relative z-10 flex items-center gap-2">View Resume <ArrowUpRight size={20} /></span>
+                <span className="relative z-10 flex items-center gap-2">Mail Me <ArrowUpRight size={20} /></span>
               </motion.a>
+            </motion.div>
+          </div>
+
+          <div className="mt-16 flex flex-col items-start justify-start gap-8">
+            <div className="flex items-center justify-start gap-5">
+              <a href="https://www.linkedin.com/in/amanux26" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full border border-white text-white flex items-center justify-center hover:bg-white/10 transition-all">
+                <Linkedin size={22} strokeWidth={1.5} />
+              </a>
+              <a href="https://x.com/aman26ux" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full border border-white text-white flex items-center justify-center hover:bg-white/10 transition-all">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" className="w-[22px] h-[22px]">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </a>
+              <a href="https://medium.com/@chourasiyaaman76" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full border border-white text-white flex items-center justify-center hover:bg-white/10 transition-all">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="6.5" cy="12" r="6.5" />
+                  <ellipse cx="17.5" cy="12" rx="3.5" ry="6.5" />
+                  <ellipse cx="23" cy="12" rx="1" ry="5.5" />
+                </svg>
+              </a>
             </div>
-            <div className="mt-16 flex flex-col items-start justify-start gap-8">
-              <div className="flex flex-col gap-2">
-                <div className="text-white/50 font-medium text-lg">
-                  Mail Me : <a href="mailto:chourasiyaaman76@gmail.com" className="text-white hover:underline underline-offset-4">chourasiyaaman76@gmail.com</a>
-                </div>
-                <div className="text-white/50 font-medium text-lg">
-                  Call Me : <a href="tel:+917225905369" className="text-white hover:underline underline-offset-4">+91 722 590 5369</a>
-                </div>
-                <div className="text-white/50 font-medium text-lg flex items-center flex-wrap gap-3">
-                  <span>Location : <span className="text-white">Indore, MP</span></span>
-                  <span className="inline-flex items-center text-xs font-medium px-2.5 py-1 bg-white/10 text-white/90 rounded-md border border-white/20">Open to relocate</span>
-                </div>
-              </div>
-              
-              <div className="flex items-center justify-start gap-5">
-                <a href="https://www.linkedin.com/in/amanux26" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full border border-white text-white flex items-center justify-center hover:bg-white/10 transition-all">
-                  <Linkedin size={22} strokeWidth={1.5} />
-                </a>
-                <a href="https://x.com/aman26ux" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full border border-white text-white flex items-center justify-center hover:bg-white/10 transition-all">
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" className="w-[22px] h-[22px]">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                  </svg>
-                </a>
-                <a href="https://medium.com/@chourasiyaaman76" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full border border-white text-white flex items-center justify-center hover:bg-white/10 transition-all">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="6.5" cy="12" r="6.5" />
-                    <ellipse cx="17.5" cy="12" rx="3.5" ry="6.5" />
-                    <ellipse cx="23" cy="12" rx="1" ry="5.5" />
-                  </svg>
-                </a>
-              </div>
-            </div>
+          </div>
           </div>
         </motion.div>
 

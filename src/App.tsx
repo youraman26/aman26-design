@@ -391,7 +391,7 @@ const Navbar = () => {
           <div className="flex items-center gap-4 relative z-10">
             {/* Crimson Premium 3d Button changed to Resume Link */}
             <motion.a
-              href="https://drive.google.com/file/d/18MAWgK4jLlFAnEy8ORVvHVmUfRCDslWk/view?usp=sharing"
+              href="https://drive.google.com/file/d/1PqPwi_zIHhfrCgeqNWZXvnYeNsKj32et/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.02 }}
@@ -489,63 +489,51 @@ const Navbar = () => {
                 ))}
               </div>
 
-              {/* Cover Letter & Resume Grid Section removed from here */}
+              {/* Bottom Section Wrapper pushed to the bottom */}
+              <div className="mt-auto flex flex-col gap-4">
+                {/* Creative Project CTA with WhatsApp & Secondary Resume Button */}
+                <div className="bg-[#F5F5F7]/80 p-[14px] rounded-3xl border border-black/[0.03]">
+                  <h4 className="text-slate-950 font-normal text-[15px] mb-3">Lets have a quick chat.</h4>
+                  <a 
+                    href="https://wa.me/917225905369?text=Hello%20Aman%2C%0A%0AI%20recently%20reviewed%20your%20portfolio%20and%20was%20impressed%20with%20your%20experience%20and%20approach%20to%20product%20design.%0A%0AI%20am%20reaching%20out%20to%20discuss%20a%20potential%20opportunity%20and%20explore%20how%20your%20skills%20align%20with%20our%20current%20requirements.%20I%20would%20appreciate%20the%20chance%20to%20connect%20and%20discuss%20this%20further%20at%20your%20convenience.%0A%0APlease%20let%20me%20know%20a%20suitable%20time%20for%20a%20conversation.%0A%0AThank%20you."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setSideMenuOpen(false)}
+                    className="cursor-pointer bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#2ecc71] hover:to-[#1abc9c] text-white py-2.5 px-5 rounded-full flex items-center justify-between select-none relative overflow-hidden group/talk transition-all duration-300 shadow-[0_6px_15px_rgba(37,211,102,0.3),inset_0_-2px_0_rgba(0,0,0,0.15)] hover:shadow-[0_10px_22px_rgba(37,211,102,0.45),inset_0_-2px_0_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
+                  >
+                    <span className="font-normal text-sm pl-1">Say Hii!</span>
+                    <WhatsAppIcon size={20} />
+                  </a>
 
-              {/* Creative Project CTA with WhatsApp */}
-              <div className="bg-[#F5F5F7]/80 p-[14px] rounded-3xl border border-black/[0.03] my-4">
-                <h4 className="text-slate-950 font-semibold text-[15px] mb-3">Lets have a quick chat.</h4>
-                <a 
-                  href="https://wa.me/917225905369?text=Hello%20Aman%2C%0A%0AI%20recently%20reviewed%20your%20portfolio%20and%20was%20impressed%20with%20your%20experience%20and%20approach%20to%20product%20design.%0A%0AI%20am%20reaching%20out%20to%20discuss%20a%20potential%20opportunity%20and%20explore%20how%20your%20skills%20align%20with%20our%20current%20requirements.%20I%20would%20appreciate%20the%20chance%20to%20connect%20and%20discuss%20this%20further%20at%20your%20convenience.%0A%0APlease%20let%20me%20know%20a%20suitable%20time%20for%20a%20conversation.%0A%0AThank%20you."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setSideMenuOpen(false)}
-                  className="cursor-pointer bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#2ecc71] hover:to-[#1abc9c] text-white py-2.5 px-5 rounded-full flex items-center justify-between select-none relative overflow-hidden group/talk transition-all duration-300 shadow-[0_6px_15px_rgba(37,211,102,0.3),inset_0_-2px_0_rgba(0,0,0,0.15)] hover:shadow-[0_10px_22px_rgba(37,211,102,0.45),inset_0_-2px_0_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
-                >
-                  <span className="font-normal text-sm pl-1">Say Hii!</span>
-                  <WhatsAppIcon size={20} />
-                </a>
-              </div>
+                  <motion.a 
+                    href="https://drive.google.com/file/d/1PqPwi_zIHhfrCgeqNWZXvnYeNsKj32et/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full mt-3 py-2.5 px-5 bg-white text-ink border border-black/10 hover:border-[#DE1C4D]/40 hover:text-[#DE1C4D] font-medium text-xs md:text-sm rounded-full text-center flex items-center justify-center gap-1.5 transition-all duration-300 cursor-pointer shadow-sm select-none"
+                  >
+                    <FileText size={14} /> View Resume <ArrowUpRight size={14} />
+                  </motion.a>
+                </div>
 
-              {/* View Resume & Cover Letter stacked at the bottom */}
-              <div className="flex flex-col gap-3 mt-2 mb-4">
-                <motion.a 
-                  href="https://drive.google.com/file/d/18MAWgK4jLlFAnEy8ORVvHVmUfRCDslWk/view?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full py-2.5 px-4 bg-gradient-to-r from-[#FF2A54] via-[#DE1C4D] to-[#B60E36] hover:from-[#DE1C4D] hover:to-[#9A0B31] text-white text-xs md:text-sm font-medium rounded-full text-center flex items-center justify-center gap-1.5 transition-all duration-300 shadow-[0_4px_10px_rgba(222,28,77,0.2),inset_0_-1px_0_rgba(0,0,0,0.12)] hover:shadow-[0_6px_16px_rgba(222,28,77,0.3)] select-none cursor-pointer"
-                >
-                  <FileText size={14} /> View Resume <ArrowUpRight size={14} />
-                </motion.a>
-                <motion.a 
-                  href="https://drive.google.com/file/d/1N5huXNJN99LOMFtFcMoA4MCjsgg5-wXh/view?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.02, borderColor: "#DE1C4D", color: "#DE1C4D" }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full py-2.5 px-4 bg-white text-ink border-2 border-ink font-medium text-xs md:text-sm rounded-full text-center flex items-center justify-center gap-1.5 transition-all duration-300 cursor-pointer"
-                >
-                  <Mail size={14} /> Cover Letter <ArrowUpRight size={14} />
-                </motion.a>
-              </div>
-
-              {/* Bottom Footer Social Media Icons */}
-              <div className="flex items-center justify-between pt-5 border-t border-black/5 mt-auto">
-                <span className="text-xs text-[#121212] font-normal tracking-wider uppercase">CONNECT</span>
-                <div className="flex items-center gap-2.5">
-                  {socials.map((soc) => (
-                    <a 
-                      key={soc.label}
-                      href={soc.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-8 h-8 rounded-full bg-[#F5F5F7] hover:bg-[#DE1C4D] text-[#555] hover:text-white flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm border border-black/5"
-                      title={soc.label}
-                    >
-                      {soc.icon}
-                    </a>
-                  ))}
+                {/* Bottom Footer Social Media Icons */}
+                <div className="flex items-center justify-between pt-5 border-t border-black/5">
+                  <span className="text-xs text-[#121212] font-normal tracking-wider uppercase">CONNECT</span>
+                  <div className="flex items-center gap-2.5">
+                    {socials.map((soc) => (
+                      <a 
+                        key={soc.label}
+                        href={soc.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 rounded-full bg-[#F5F5F7] hover:bg-[#DE1C4D] text-[#555] hover:text-white flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm border border-black/5"
+                        title={soc.label}
+                      >
+                        {soc.icon}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -766,32 +754,32 @@ const Hero = ({ onViewWork }: { onViewWork: () => void }) => {
   const scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.95]);
 
   return (
-    <section id="home" className="relative h-[1039px] md:h-[1040px] flex items-center justify-center overflow-hidden bg-bg p-3 sm:p-5 md:p-8 pt-[80px] md:pt-24 select-none">
+    <section id="home" className="relative h-[890px] sm:h-[950px] md:h-[1040px] flex items-center justify-center overflow-hidden bg-bg p-3 sm:p-5 md:p-8 pt-[80px] md:pt-24 select-none">
       
       {/* Immersive Dark Gradient bento card frame with 45-degree angle or 0A0A0C to 7B0B27 layout */}
-      <div className="absolute inset-x-3 sm:inset-x-5 md:inset-x-8 top-[80px] md:top-24 bottom-3 sm:bottom-5 md:bottom-8 h-[958px] md:h-auto bg-gradient-to-b from-[#0A0A0C] to-[#7B0B27] rounded-[32px] md:rounded-[48px] border border-[#DE1C4D]/25 overflow-hidden shadow-none z-0">
+      <div className="absolute inset-x-3 sm:inset-x-5 md:inset-x-8 top-[80px] md:top-24 bottom-3 sm:bottom-5 md:bottom-8 h-[810px] sm:h-[870px] md:h-auto bg-gradient-to-b from-[#0A0A0C] to-[#7B0B27] rounded-[32px] md:rounded-[48px] border border-[#DE1C4D]/25 overflow-hidden shadow-none z-0">
         
         {/* Interactive Liquid Canvas layer */}
         <LiquidCanvas />
-
+ 
         {/* Dynamic ambient grid overlay inside the frame */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-[2]" />
         
         {/* Subtle noise/grain texture */}
         <div className="absolute inset-0 opacity-[0.035] mix-blend-overlay pointer-events-none z-[3]" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} />
-
+ 
         {/* Soft radial spot-light behind heading */}
         <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-radial from-[#FF2D6F]/12 to-transparent blur-[70px] pointer-events-none z-[1]" />
-
+ 
         {/* Soft radial glow to stabilize background depth */}
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4/5 h-[35%] bg-gradient-radial from-[#DE1C4D]/10 to-transparent blur-[80px] pointer-events-none z-[2]" />
-
+ 
         {/* Peeking Bottom Center Portrait and Backdrop Card - positioned inside bento card for perfect bottom flush clipping */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.75, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full sm:w-[300px] md:w-[510px] h-[340px] sm:h-[266px] bg-transparent rounded-t-[20px] sm:rounded-t-[32px] md:rounded-t-[40px] flex items-end justify-center z-10 select-none overflow-hidden pointer-events-none"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full sm:w-[300px] md:w-[510px] h-[300px] sm:h-[266px] bg-transparent rounded-t-[20px] sm:rounded-t-[32px] md:rounded-t-[40px] flex items-end justify-center z-10 select-none overflow-hidden pointer-events-none"
         >
           <motion.img 
             src="/image/myimg.webp" 
@@ -800,9 +788,9 @@ const Hero = ({ onViewWork }: { onViewWork: () => void }) => {
             referrerPolicy="no-referrer"
           />
         </motion.div>
-
+ 
       </div>
-
+ 
       <motion.div 
         style={{ y, opacity, scale }}
         className="w-full max-w-[1400px] px-0 text-center z-10 flex flex-col items-center justify-center relative mt-16 md:mt-2"
@@ -811,7 +799,7 @@ const Hero = ({ onViewWork }: { onViewWork: () => void }) => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col items-center relative w-full pt-0 h-[800px] md:h-[615px]"
+          className="flex flex-col items-center relative w-full pt-0 h-[690px] sm:h-[750px] md:h-[615px]"
         >
           {/* Top red elegant sub-title exactly as designed */}
           <motion.div
@@ -851,11 +839,32 @@ const Hero = ({ onViewWork }: { onViewWork: () => void }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.45, duration: 0.6 }}
-            className="flex flex-col gap-1 items-center mb-8 md:mb-14 max-w-[90%] md:max-w-[900px] mx-auto text-center"
+            className="flex flex-col gap-1 items-center mb-8 md:mb-14 w-full max-w-[90%] md:max-w-[1004px] mx-auto text-center"
           >
-            <p className="text-white text-[16px] sm:text-[20px] md:text-[24px] font-normal tracking-wide leading-relaxed" style={{ borderColor: '#ffffff', color: '#ffffff' }}>
-              Product Thinking, UX Research, Design System, User/Human Centric Design, AI Powered Workflow, Vibe Coding
-            </p>
+            {/* Infinite right-to-left scrolling ticker for both web and mobile */}
+            <div className="w-full overflow-hidden relative py-2 sm:py-3 [mask-image:linear-gradient(to_right,transparent_5%,white_20%,white_80%,transparent_95%)]">
+              <motion.div 
+                className="flex whitespace-nowrap gap-12 sm:gap-16 w-max"
+                animate={{ x: [0, "-33.3333%"] }}
+                transition={{
+                  repeat: Infinity,
+                  ease: "linear",
+                  duration: 25
+                }}
+              >
+                {/* Render the items three times for a perfectly seamless scroll reset */}
+                {[...Array(3)].map((_, i) => (
+                  <div key={i} className="flex gap-12 sm:gap-16 items-center shrink-0">
+                    {["Product Thinking", "UX Research & Design", "Design Systems", "AI-Driven Workflows", "Human Centric Design", "AI Prototyping"].map((word, idx) => (
+                      <span key={idx} className="text-white text-[15px] sm:text-[20px] md:text-[22px] font-medium sm:font-normal tracking-wide flex items-center gap-4 sm:gap-6 select-none">
+                        <span>{word}</span>
+                        <span className="text-[#DE1C4D] font-bold">•</span>
+                      </span>
+                    ))}
+                  </div>
+                ))}
+              </motion.div>
+            </div>
           </motion.div>
 
           {/* Wide premium transparent glassmorphism capsule container wrapping descriptors and Say hellooo action */}
@@ -886,7 +895,7 @@ const Hero = ({ onViewWork }: { onViewWork: () => void }) => {
               className="w-full sm:w-[279px] md:w-[200px] py-3 sm:py-3 mx-auto max-w-[280px] sm:max-w-none bg-gradient-to-r from-[#FF2A54] via-[#DE1C4D] to-[#B60E36] hover:from-[#DE1C4D] hover:to-[#9A0B31] text-white text-sm md:text-base font-normal rounded-full transition-all duration-300 shadow-[0_4px_12px_rgba(222,28,77,0.25),0_2px_5px_rgba(222,28,77,0.12),inset_0_-1px_0_rgba(0,0,0,0.12)] hover:shadow-[0_6px_16px_rgba(222,28,77,0.35),0_3px_8px_rgba(222,28,77,0.18),inset_0_-1px_0_rgba(0,0,0,0.12)] select-none cursor-pointer flex items-center justify-center gap-2 text-center"
               style={{ fontWeight: 'normal', fontSize: '16px' }}
             >
-              <span>Say hellooo</span>
+              <span>Say Hii</span>
               <ArrowUpRight size={18} />
             </motion.a>
           </motion.div>
@@ -1015,7 +1024,9 @@ const MoreWorkBanner = () => {
         >
           {/* Left colored part */}
           <div className="w-full md:w-1/3 bg-gradient-to-b from-[#0A0A0C] to-[#7B0B27] grid place-items-center min-h-[200px] md:min-h-[280px] relative overflow-hidden">
-            <span className="text-[200px] md:text-[280px] font-black text-white leading-none select-none transform -translate-y-[0.08em]">
+            {/* Dynamic lining grid overlay */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-[1]" />
+            <span className="text-[200px] md:text-[280px] font-black text-white leading-none select-none transform -translate-y-[0.08em] relative z-10">
               a
             </span>
           </div>
@@ -1075,6 +1086,9 @@ const ProjectCard: React.FC<{ project: Project, index: number, onClick: (p: Proj
       onClick={() => onClick(project)}
       className="md:sticky relative md:[top:var(--card-top)] group bg-gradient-to-b from-[#0A0A0C] to-[#7B0B27] rounded-[24px] md:rounded-[32px] shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_60px_rgba(222,28,77,0.25)] transition-all duration-700 flex flex-col md:flex-row items-stretch cursor-pointer border border-[#DE1C4D]/20 h-auto md:h-[460px] lg:h-[500px] xl:h-[560px] 2xl:h-[640px] p-4 sm:p-5 md:p-6 lg:p-8 gap-5 md:gap-8 lg:gap-10 overflow-hidden"
     >
+      {/* Dynamic lining grid overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-[1]" />
+
       {/* Text Content */}
       <div className="w-full md:w-[38%] flex flex-col justify-between p-0 bg-transparent relative z-10 order-2 md:order-1">
         <div className="max-w-xl flex flex-col h-full justify-between py-1 md:py-2">
@@ -1141,19 +1155,22 @@ const MinorProjectCard = ({ project, onClick }: { project: Project, onClick: (p:
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       onClick={() => onClick(project)}
-      className="group bg-gradient-to-b from-[#0A0A0C] to-[#7B0B27] rounded-[24px] md:rounded-[32px] shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_60px_rgba(222,28,77,0.25)] transition-all duration-500 cursor-pointer border border-[#DE1C4D]/25 flex flex-col h-full overflow-hidden p-3 md:p-4 lg:p-5"
+      className="group bg-gradient-to-b from-[#0A0A0C] to-[#7B0B27] rounded-[24px] md:rounded-[32px] shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_60px_rgba(222,28,77,0.25)] transition-all duration-500 cursor-pointer border border-[#DE1C4D]/25 flex flex-col h-full overflow-hidden p-3 md:p-4 lg:p-5 relative"
     >
-      <div className="w-full h-[240px] md:h-[280px] lg:h-[320px] overflow-hidden relative rounded-[18px] md:rounded-[24px] lg:rounded-[28px] bg-white/5 border border-white/10 shrink-0 [transform:translate3d(0,0,0)] [backface-visibility:hidden]">
+      {/* Dynamic lining grid overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-[1]" />
+
+      <div className="w-full h-[240px] md:h-[280px] lg:h-[320px] overflow-hidden relative rounded-[18px] md:rounded-[24px] lg:rounded-[28px] bg-white/5 border border-white/10 shrink-0 [transform:translate3d(0,0,0)] [backface-visibility:hidden] z-10">
         <ResponsiveImage 
           src={project.image} 
           alt={project.title} 
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out [backface-visibility:hidden] [transform:translate3d(0,0,0)] [image-rendering:-webkit-optimize-contrast] will-change-transform" 
         />
         <div className="absolute inset-0 bg-black/15 group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
       </div>
       
-      <div className="flex flex-col flex-1 pt-5 md:pt-6 pb-2 justify-between">
+      <div className="flex flex-col flex-1 pt-5 md:pt-6 pb-2 justify-between relative z-10">
         <div>
           <h3 className="text-[22px] md:text-[24px] lg:text-[28px] font-medium text-white mb-3 leading-tight tracking-tight">
             {project.title}
@@ -1287,7 +1304,7 @@ const WorkSection = ({ onSelectProject }: { onSelectProject: (p: Project) => voi
           </motion.h3>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 w-full">
           {MINOR_PROJECTS.map((project) => (
             <div key={project.id} className="w-full">
               <MinorProjectCard 

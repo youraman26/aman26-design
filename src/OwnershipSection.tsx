@@ -389,7 +389,7 @@ const OwnershipSection = () => {
                     </p>
                   </div>
                   <a 
-                    href="https://drive.google.com/file/d/18MAWgK4jLlFAnEy8ORVvHVmUfRCDslWk/view?usp=sharing"
+                    href="https://drive.google.com/file/d/1PqPwi_zIHhfrCgeqNWZXvnYeNsKj32et/view?usp=sharing"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full py-2.5 bg-white text-ink rounded-full font-medium text-sm md:text-base flex items-center justify-center gap-2 hover:bg-opacity-90 transition-all shadow-lg"
