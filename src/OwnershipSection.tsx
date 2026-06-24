@@ -120,9 +120,9 @@ const OwnershipSection = () => {
   };
 
   return (
-    <section id="story" className="relative py-24 md:py-36 text-white overflow-hidden w-full select-none bg-bg p-3 sm:p-5 md:p-8">
+    <section id="story" className="relative py-24 md:py-36 text-white overflow-hidden w-full select-none bg-bg">
       {/* Background Frame with gradient to match Hero section */}
-      <div className="absolute inset-3 sm:inset-5 md:inset-8 bg-gradient-to-b from-[#0A0A0C] to-[#7B0B27] rounded-[32px] md:rounded-[48px] border border-[#DE1C4D]/25 overflow-hidden shadow-none z-0">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C] to-[#7B0B27] border-y border-[#DE1C4D]/25 overflow-hidden shadow-none z-0">
         {/* Dynamic ambient grid overlay inside the frame */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-[1]" />
         

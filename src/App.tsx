@@ -754,10 +754,10 @@ const Hero = ({ onViewWork }: { onViewWork: () => void }) => {
   const scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.95]);
 
   return (
-    <section id="home" className="relative h-[890px] sm:h-[950px] md:h-[1040px] flex items-center justify-center overflow-hidden bg-bg p-3 sm:p-5 md:p-8 pt-[80px] md:pt-24 select-none">
+    <section id="home" className="relative h-[890px] sm:h-[950px] md:h-[1040px] flex items-center justify-center overflow-hidden bg-bg w-full pt-[80px] md:pt-24 select-none">
       
-      {/* Immersive Dark Gradient bento card frame with 45-degree angle or 0A0A0C to 7B0B27 layout */}
-      <div className="absolute inset-x-3 sm:inset-x-5 md:inset-x-8 top-[80px] md:top-24 bottom-3 sm:bottom-5 md:bottom-8 h-[810px] sm:h-[870px] md:h-auto bg-gradient-to-b from-[#0A0A0C] to-[#7B0B27] rounded-[32px] md:rounded-[48px] border border-[#DE1C4D]/25 overflow-hidden shadow-none z-0">
+      {/* Immersive Dark Gradient bg frame spanning full width edge-to-edge */}
+      <div className="absolute inset-x-0 top-0 bottom-0 h-full bg-gradient-to-b from-[#0A0A0C] to-[#7B0B27] border-b border-[#DE1C4D]/25 overflow-hidden shadow-none z-0">
         
         {/* Interactive Liquid Canvas layer */}
         <LiquidCanvas />
@@ -1155,41 +1155,41 @@ const MinorProjectCard = ({ project, onClick }: { project: Project, onClick: (p:
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       onClick={() => onClick(project)}
-      className="group bg-gradient-to-b from-[#0A0A0C] to-[#7B0B27] rounded-[24px] md:rounded-[32px] shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_60px_rgba(222,28,77,0.25)] transition-all duration-500 cursor-pointer border border-[#DE1C4D]/25 flex flex-col h-full overflow-hidden p-3 md:p-4 lg:p-5 relative"
+      className="group bg-gradient-to-b from-[#0A0A0C] to-[#7B0B27] rounded-[24px] md:rounded-[32px] shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_60px_rgba(222,28,77,0.25)] transition-all duration-500 cursor-pointer border border-[#DE1C4D]/25 flex flex-col md:flex-row items-stretch h-auto md:h-[280px] lg:h-[320px] overflow-hidden p-3 md:p-4 lg:p-5 gap-5 md:gap-6 relative"
     >
       {/* Dynamic lining grid overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-[1]" />
 
-      <div className="w-full h-[240px] md:h-[280px] lg:h-[320px] overflow-hidden relative rounded-[18px] md:rounded-[24px] lg:rounded-[28px] bg-white/5 border border-white/10 shrink-0 [transform:translate3d(0,0,0)] [backface-visibility:hidden] z-10">
+      <div className="w-full md:w-[45%] h-[200px] sm:h-[240px] md:h-full overflow-hidden relative rounded-[18px] md:rounded-[24px] bg-white/5 border border-white/10 shrink-0 [transform:translate3d(0,0,0)] [backface-visibility:hidden] z-10">
         <ResponsiveImage 
           src={project.image} 
           alt={project.title} 
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 25vw, 300px"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out [backface-visibility:hidden] [transform:translate3d(0,0,0)] [image-rendering:-webkit-optimize-contrast] will-change-transform" 
         />
         <div className="absolute inset-0 bg-black/15 group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
       </div>
       
-      <div className="flex flex-col flex-1 pt-5 md:pt-6 pb-2 justify-between relative z-10">
+      <div className="w-full md:w-[55%] flex flex-col flex-1 justify-between py-1 relative z-10">
         <div>
-          <h3 className="text-[22px] md:text-[24px] lg:text-[28px] font-medium text-white mb-3 leading-tight tracking-tight">
+          <h3 className="text-[18px] sm:text-[20px] md:text-[20px] lg:text-[22px] font-medium text-white mb-2 leading-tight tracking-tight">
             {project.title}
           </h3>
-          <p className="text-[12px] sm:text-base font-normal text-[#cfcfcf] leading-relaxed">
+          <p className="text-[12px] sm:text-[13px] md:text-[13px] lg:text-[14px] font-normal text-[#cfcfcf] leading-relaxed line-clamp-3 md:line-clamp-4">
             {project.description}
           </p>
         </div>
-        <div className="mt-8">
+        <div className="mt-4 md:mt-auto">
           <motion.div 
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full sm:w-max px-6 py-3 bg-white text-[#0A0A0C] font-semibold rounded-full transition-all duration-300 flex items-center justify-center sm:justify-start gap-2 shadow-sm relative overflow-hidden group/btn text-[14px] md:text-[15px]"
+            className="w-full sm:w-max px-5 py-2.5 bg-white text-[#0A0A0C] font-semibold rounded-full transition-all duration-300 flex items-center justify-center sm:justify-start gap-2 shadow-sm relative overflow-hidden group/btn text-[12px] md:text-[13px]"
           >
             <div className="absolute inset-0 bg-accent translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-300 pointer-events-none" />
             <span className="relative z-10 group-hover/btn:text-white transition-colors duration-300">
               {project.buttonLabel || (project.externalLink?.includes('medium.com') ? "Read On Medium" : "View Project")}
             </span>
-            <ArrowUpRight size={16} className="relative z-10 group-hover/btn:text-white group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform duration-300" />
+            <ArrowUpRight size={14} className="relative z-10 group-hover/btn:text-white group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform duration-300" />
           </motion.div>
         </div>
       </div>

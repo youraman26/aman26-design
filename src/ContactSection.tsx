@@ -13,7 +13,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="bg-white pt-[192px] pb-32 md:pb-48 relative overflow-hidden w-full">
+    <section id="contact" className="bg-bg pt-[192px] pb-32 md:pb-48 relative overflow-hidden w-full">
       {/* Huge Background Text */}
       <div className="absolute inset-0 overflow-hidden flex items-center justify-center pointer-events-none select-none opacity-[0.03] z-0">
         <motion.h2 
@@ -30,12 +30,12 @@ const ContactSection = () => {
       {/* Grid Background Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px),linear-gradient(to_bottom,#00000005_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none opacity-50" />
       
-      <div className="w-full max-w-none px-3 sm:px-5 md:px-8 relative z-10 flex flex-col items-center justify-center">
+      <div className="w-full max-w-none relative z-10 flex flex-col items-center justify-center">
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="w-full max-w-[1850px] mx-auto bg-gradient-to-b from-[#0A0A0C] to-[#7B0B27] rounded-[32px] md:rounded-[60px] overflow-hidden border border-[#DE1C4D]/25 relative shadow-[0_8px_30px_rgba(0,0,0,0.3)] flex flex-col"
+          className="w-full bg-gradient-to-b from-[#0A0A0C] to-[#7B0B27] overflow-hidden border-y border-[#DE1C4D]/25 relative shadow-[0_8px_30px_rgba(0,0,0,0.3)] flex flex-col"
         >
           {/* Subtle Shine Overlay */}
           <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none" />

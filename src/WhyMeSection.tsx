@@ -3,10 +3,10 @@ import React from "react";
 
 const WhyMeSection = () => {
   return (
-    <section className="bg-white py-12 md:py-20 relative overflow-hidden w-full">
-      <div className="w-full max-w-none px-3 sm:px-5 md:px-8 relative z-10 flex flex-col items-center justify-center">
+    <section className="bg-bg py-12 md:py-20 relative overflow-hidden w-full">
+      <div className="w-full max-w-none relative z-10 flex flex-col items-center justify-center">
         <div 
-          className="w-full max-w-[1850px] mx-auto bg-gradient-to-b from-[#0A0A0C] to-[#7B0B27] rounded-[32px] md:rounded-[60px] overflow-hidden border border-[#DE1C4D]/25 relative shadow-[0_8px_30px_rgba(0,0,0,0.3)] flex flex-col"
+          className="w-full bg-gradient-to-b from-[#0A0A0C] to-[#7B0B27] overflow-hidden border-y border-[#DE1C4D]/25 relative shadow-[0_8px_30px_rgba(0,0,0,0.3)] flex flex-col"
         >
           <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none" />
           
